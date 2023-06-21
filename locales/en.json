@@ -1,3 +1,5 @@
 {
-  "home": "Home"
+  "hello_world": "Hello World",
+  "home": "Home",
+  "something_went_wrong": "Something went wrong"
 }

@@ -2,9 +2,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack';
 import { ArrowLeft } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TouchableOpacity } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+
+import Onboarding from '@/screens/Onboarding';
+import { storage } from '@/utils/storage';
 
 import useColors from '../hooks/useColors';
 import { wp } from '../utils/dimensions';
@@ -21,7 +23,6 @@ export type RootStackProps<T extends keyof RootStackParams> = {
 const Stack = createStackNavigator<RootStackParams>();
 
 const RootNavigation = () => {
-  const { t } = useTranslation();
   const colors = useColors();
   const [firstLaunch, setFirstLaunch] = useState<boolean | null>(null);
 
@@ -54,9 +55,7 @@ const RootNavigation = () => {
               </TouchableOpacity>
             ),
           })}>
-          {firstLaunch && (
-            <Stack.Screen options={{ headerShown: false }} name="Onboarding" component={OnboardingScreen} />
-          )}
+          {firstLaunch && <Stack.Screen options={{ headerShown: false }} name="Onboarding" component={Onboarding} />}
           <Stack.Screen
             name="TabNavigation"
             component={TabNavigation}

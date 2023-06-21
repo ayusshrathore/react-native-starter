@@ -9,14 +9,14 @@ import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import initIosKeyboard from '@/common/initIosKeyboard';
+import RootNavigation from '@/navigation/RootNavigation';
 import ErrorFallback from '@/screens/ErrorFallback';
 import { useUIStore } from '@/store/useUIStore';
 
 import bootSplashLogo from './assets/bootsplash_logo.png';
 import i18n from './locales/i18n';
 import { queryClient } from './queryClient';
-import initIosKeyboard from './src/common/initIosKeyboard';
-import RootNavigation from './src/navigation/RootNavigation';
 
 if (__DEV__) {
   import('./reactotron');

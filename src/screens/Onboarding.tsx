@@ -1,11 +1,14 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
 import Text from '@/components/Text';
+import { hp, wp } from '@/utils/dimensions';
 
-const ErrorFallback: FC = () => {
+import logo from '../../assets/logo.png';
+
+const Onboarding: FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,15 +18,18 @@ const ErrorFallback: FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
+      <View style={{ height: hp(50), width: wp(100) }}>
+        <Image source={logo} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
+      </View>
       <Text
         style={{
           fontSize: moderateScale(22),
           fontWeight: 'bold',
         }}>
-        {t('something_went_wrong')}
+        {t('hello_world')}
       </Text>
     </View>
   );
 };
 
-export default ErrorFallback;
+export default Onboarding;

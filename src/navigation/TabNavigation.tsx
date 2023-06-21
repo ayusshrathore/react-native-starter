@@ -20,8 +20,8 @@ export interface TabNavigationParams extends Record<string, object | undefined> 
 const Tab = createBottomTabNavigator<TabNavigationParams>();
 
 const TabNavigation: FC<RootNavigationProps> = () => {
-  const insets = useSafeAreaInsets();
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const colors = useColors();
 
   return (

@@ -2,17 +2,16 @@ import NetInfo from '@react-native-community/netinfo';
 import { focusManager, onlineManager } from '@tanstack/react-query';
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppState, AppStateStatus, Platform } from 'react-native';
+import { AppState, AppStateStatus, Image, Platform, View } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
 
 import Container from '@/components/Container';
-import ScrollView from '@/components/ScrollView';
-import RegularText from '@/components/Text';
-import useColors from '@/hooks/useColors';
+import { hp, wp } from '@/utils/dimensions';
+
+import logo from '../../assets/logo.png';
 
 const Home: FC = () => {
   const { t } = useTranslation();
-  const colors = useColors();
 
   function onAppStateChange(status: AppStateStatus) {
     if (Platform.OS !== 'web') {
@@ -41,13 +40,9 @@ const Home: FC = () => {
 
   return (
     <Container>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{
-          backgroundColor: colors.background,
-        }}
-      />
-      <RegularText>Hello World</RegularText>
+      <View style={{ height: hp(50), width: wp(50) }}>
+        <Image source={logo} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
+      </View>
     </Container>
   );
 };
