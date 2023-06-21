@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, View } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
 import Text from '@/components/Text';
 import { hp, wp } from '@/utils/dimensions';
@@ -23,7 +23,7 @@ const Onboarding: FC = () => {
       </View>
       <Text
         style={{
-          fontSize: moderateScale(22),
+          fontSize: ms(22),
           fontWeight: 'bold',
         }}>
         {t('hello_world')}

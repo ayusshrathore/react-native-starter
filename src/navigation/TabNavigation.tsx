@@ -3,7 +3,7 @@ import { HomeIcon } from 'lucide-react-native';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { moderateScale } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
 import Text from '@/components/Text';
 import { APP_NAME } from '@/config/constants';
@@ -34,8 +34,8 @@ const TabNavigation: FC<RootNavigationProps> = () => {
         },
         headerTitleStyle: {
           color: colors.text,
-          fontSize: moderateScale(20),
-          marginBottom: moderateScale(10),
+          fontSize: ms(20),
+          marginBottom: ms(10),
         },
         tabBarStyle: {
           backgroundColor: colors.background,
@@ -51,7 +51,7 @@ const TabNavigation: FC<RootNavigationProps> = () => {
         options={{
           headerTitleStyle: {
             color: colors.text,
-            fontSize: moderateScale(20),
+            fontSize: ms(20),
             alignSelf: 'center',
           },
           tabBarIcon: ({ focused }) => (
@@ -61,7 +61,7 @@ const TabNavigation: FC<RootNavigationProps> = () => {
             <Text
               style={{
                 color: focused ? colors.primary : colors.text,
-                fontSize: moderateScale(10),
+                fontSize: ms(10),
                 fontWeight: '600',
               }}>
               {t('home')}

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
 import Text from '@/components/Text';
 
@@ -17,7 +17,7 @@ const ErrorFallback: FC = () => {
       }}>
       <Text
         style={{
-          fontSize: moderateScale(22),
+          fontSize: ms(22),
           fontWeight: 'bold',
         }}>
         {t('something_went_wrong')}

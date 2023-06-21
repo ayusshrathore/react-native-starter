@@ -3,7 +3,7 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { ArrowLeft } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { moderateScale } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
 import Onboarding from '@/screens/Onboarding';
 import { storage } from '@/utils/storage';
@@ -47,11 +47,11 @@ const RootNavigation = () => {
             },
             headerTitleStyle: {
               color: colors.text,
-              fontSize: moderateScale(14),
+              fontSize: ms(14),
             },
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.pop()}>
-                <ArrowLeft name="arrow-back-ios" size={wp(6)} color={colors.text} style={{ marginLeft: wp(3) }} />
+                <ArrowLeft size={wp(6)} color={colors.text} style={{ marginLeft: wp(3) }} />
               </TouchableOpacity>
             ),
           })}>
