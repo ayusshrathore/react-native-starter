@@ -1,34 +1,32 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Image, View } from 'react-native';
-import { ms } from 'react-native-size-matters';
+import { Image } from 'react-native';
+import { OnboardFlow } from 'react-native-onboard';
 
-import Text from '@/components/Text';
-import { hp, wp } from '@/utils/dimensions';
+import useColors from '@/hooks/useColors';
+import { RootStackProps } from '@/navigation/RootNavigation';
 
-import logo from '../../assets/logo.png';
+type Props = RootStackProps<'Onboarding'>;
 
-const Onboarding: FC = () => {
-  const { t } = useTranslation();
+const Onboarding: FC<Props> = ({ navigation }) => {
+  const colors = useColors();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <View style={{ height: hp(50), width: wp(100) }}>
-        <Image source={logo} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
-      </View>
-      <Text
-        style={{
-          fontSize: ms(22),
-          fontWeight: 'bold',
-        }}>
-        {t('hello_world')}
-      </Text>
-    </View>
+    <OnboardFlow
+      titleStyle={{ color: colors.primary }}
+      primaryButtonStyle={{ backgroundColor: colors.primary }}
+      paginationSelectedColor={colors.primary}
+      paginationColor="#ccc"
+      onDone={() => navigation.navigate('TabNavigation')}
+      pages={[
+        {
+          title: 'Hello, there!',
+          subtitle: 'This is a subtitle that will blow your mind',
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          imageUri: Image.resolveAssetSource(require('@/assets/images/onboarding.png')).uri,
+        },
+      ]}
+      type={'fullscreen'}
+    />
   );
 };
 

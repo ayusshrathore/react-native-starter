@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { ms } from 'react-native-size-matters';
 
-import Text from '@/components/Text';
+import RegularText from '@/components/RegularText';
 
 const ErrorFallback: FC = () => {
   const { t } = useTranslation();
@@ -15,13 +15,13 @@ const ErrorFallback: FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Text
+      <RegularText
         style={{
           fontSize: ms(22),
           fontWeight: 'bold',
         }}>
         {t('something_went_wrong')}
-      </Text>
+      </RegularText>
     </View>
   );
 };

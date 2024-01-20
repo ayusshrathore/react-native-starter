@@ -3,10 +3,12 @@ import { focusManager, onlineManager } from '@tanstack/react-query';
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppState, AppStateStatus, Image, Platform, View } from 'react-native';
-import { showMessage } from 'react-native-flash-message';
+import { ms } from 'react-native-size-matters';
 
 import Container from '@/components/Container';
-import { hp, wp } from '@/utils/dimensions';
+import { errorMessage } from '@/components/FlashMessage';
+import RegularText from '@/components/RegularText';
+import tw from '@/lib/tw';
 
 import logo from '../../assets/logo.png';
 
@@ -23,11 +25,7 @@ const Home: FC = () => {
     const unsubscribe = NetInfo.addEventListener(state => {
       onlineManager.setOnline(!!state.isConnected);
       if (!state.isConnected) {
-        showMessage({
-          message: t('no_internet'),
-          type: 'danger',
-          icon: 'warning',
-        });
+        errorMessage(t('no_internet'));
       }
     });
     const subscription = AppState.addEventListener('change', onAppStateChange);
@@ -40,9 +38,10 @@ const Home: FC = () => {
 
   return (
     <Container>
-      <View style={{ height: hp(50), width: wp(50) }}>
+      <View style={{ height: ms(200), width: ms(200) }}>
         <Image source={logo} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
       </View>
+      <RegularText style={tw('font-bold text-2xl mt-4 text-gray-700')}>{t('hello_world')}</RegularText>
     </Container>
   );
 };
