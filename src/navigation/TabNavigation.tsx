@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ms } from 'react-native-size-matters';
 
-import Text from '@/components/Text';
+import Text from '@/components/RegularText';
 import { APP_NAME } from '@/config/constants';
 import useColors from '@/hooks/useColors';
 import Home from '@/screens/Home';
@@ -54,9 +54,7 @@ const TabNavigation: FC<RootNavigationProps> = () => {
             fontSize: ms(20),
             alignSelf: 'center',
           },
-          tabBarIcon: ({ focused }) => (
-            <HomeIcon name="home" size={wp(7)} color={focused ? colors.primary : colors.text} />
-          ),
+          tabBarIcon: ({ focused }) => <HomeIcon size={wp(7)} color={focused ? colors.primary : colors.text} />,
           tabBarLabel: ({ focused }) => (
             <Text
               style={{
